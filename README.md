@@ -20,11 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See spec/api_grade/
+
+## Test
+
+1. `rspec spec/api_grade/api/sysu.rb`
 
 ## TODO LIST
 
-* Write usage instructions here
+* Write sysu grade api.
+
+## Yard
+
+`yardoc lib/*.rb lib/api_grade/*.rb lib/api_grade/api/*.rb`
 
 ## Contributing
 

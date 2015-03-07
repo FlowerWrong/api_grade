@@ -24,7 +24,7 @@ See spec/api_grade/
 
 ## Test
 
-1. `rspec spec/api_grade/api/sysu.rb`
+1. `rspec spec/api_grade/api/sysu_spec.rb`
 
 ## TODO LIST
 

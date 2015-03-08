@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 require 'rest_client'
-require 'open-uri'
+require 'yaml'
 
 def login(student_id, pass)
   login_url = 'http://uems.sysu.edu.cn/jwxt/j_unieap_security_check.do'
@@ -22,8 +22,10 @@ def login(student_id, pass)
   return_hash
 end
 
-student_id = '11365093'
-pass = 'aFkApY-133'
+user = YAML.load(File.open('/home/yang/dev/ruby/gem/api_grade/config/user.yml'))
+student_id = user['sysu']['name']
+pass = user['sysu']['pass']
+
 =begin
 login_hash = login(student_id, pass)
 puts login_hash
@@ -34,13 +36,15 @@ puts '-' * 20
 resource2 = RestClient::Resource.new('http://uems.sysu.edu.cn/jwxt/edp/index.jsp', :headers => login_hash[:headers], :cookies => cookies)
 res2 = resource2.get
 puts res2.to_s
-=end
+
 
 require 'httparty'
 
 res = HTTParty.post("http://uems.sysu.edu.cn/jwxt/j_unieap_security_check.do",
-  { 
+  {
     :body => [ { "j_password" => "aFkApY-133", "j_username" => "11365093" } ].to_json
   })
 
 puts res.code
+
+=end

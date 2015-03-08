@@ -1,10 +1,12 @@
 # encoding: UTF-8
 require 'spec_helper'
+require 'yaml'
 
 describe ApiGrade::Api::Sysu do
   before(:all) do
-    @student_id = '11365093'
-    @pass = 'aFkApY-133'
+    @user = YAML.load(File.open(ApiGrade.root + '/config/user.yml'))
+    @student_id = @user['sysu']['name']
+    @pass = @user['sysu']['pass']
   end
 
   it 'should login to sysu mis' do

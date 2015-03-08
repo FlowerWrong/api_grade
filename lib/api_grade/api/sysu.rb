@@ -18,8 +18,9 @@ module ApiGrade
       # @param [Enumerable<String>] pass
       # @return [Hash]
       def login(student_id, pass)
-        res = `python "#{ApiGrade.lib}/api_grade/api/sysupy/sysu_login.py" "#{student_id}" "#{pass}"`
+        res = `python "#{ApiGrade.lib}/api_grade/api/sysupy/fakesysujwxt.py" login "#{student_id}" "#{pass}"`
         login_arr = res.split("\n")
+        p login_arr
         # return_hash = { status: 'ok', msg: 'success', cookies: {} }
         return_hash = { status: 'ok', msg: 'success', cookies: '' }
         if login_arr[0] == 'True'
@@ -31,8 +32,6 @@ module ApiGrade
         end
         return_hash
       end
-
-
 
       # 查询成绩 api
       #

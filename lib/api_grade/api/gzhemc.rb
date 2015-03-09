@@ -42,11 +42,7 @@ module ApiGrade
         }
         resource = RestClient::Resource.new(url, headers: headers, cookies: {JSESSIONID: cookies})
         res = resource.get
-        res = `curl "#{url}" -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3' -H 'Connection: keep-alive' -H "Cookie: JSESSIONID=#{cookies}" -H 'Host: cas.gzhu.edu.cn' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0'`
-        puts '-' * 20
-        # puts res.code
-        puts res
-        return_hash = { status: 'ok', msg: 'success', res: res }
+        { status: 'ok', msg: 'success', res: res }
       end
 
       # 查询成绩 api

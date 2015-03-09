@@ -17,3 +17,5 @@ mkmf.log
 /.c9/
 /config/user.yml
 /.idea/
+/cookie
+/lib/api_grade/api/cookie

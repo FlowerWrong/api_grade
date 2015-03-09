@@ -16,3 +16,4 @@ mkmf.log
 *.gem
 /.c9/
 /config/user.yml
+/.idea/
